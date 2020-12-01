@@ -29,6 +29,8 @@ export default function () {
 
     bot.command('ping', ctx => ctx.reply('pong'));
 
+    bot.command('help', ctx => ctx.reply('Отправляй картинку, видео, ссылку или просто текст и админ оценит'));
+
     bot.on('message', async (ctx) => {
         if (ctx.message) {
             if (ctx.message.media_group_id) {
