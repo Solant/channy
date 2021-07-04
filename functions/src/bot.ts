@@ -22,6 +22,15 @@ function getFileId(message: IncomingMessage): Media | undefined {
     return undefined;
 }
 
+function getMessageText(message: IncomingMessage): string {
+    // remove caption from forwarded messages
+    if (message.forward_date) {
+        return '';
+    } else {
+        return message.caption || message.text || '';
+    }
+}
+
 export default function () {
     const bot = new Telegraf(config('TOKEN'));
 
@@ -38,7 +47,7 @@ export default function () {
             }
 
             const file = getFileId(ctx.message);
-            const text = ctx.message.caption || ctx.message.text || '';
+            const text = getMessageText(ctx.message);
 
             const suggestionData = {
                 text,
