@@ -10,7 +10,7 @@
     "local": "ts-node src/local.ts"
   },
   "engines": {
-    "node": "10"
+    "node": "12"
   },
   "main": "lib/index.js",
   "dependencies": {

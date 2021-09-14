@@ -42,7 +42,7 @@ export class PostService {
             .get();
         const suggestionData = s.data()!;
 
-        const reactionValues = options?.reactions || ['😂', '👌', '🤔', '\uD83D\uDE12'];
+        const reactionValues = options?.reactions || ['😂', '👌', '🪗', '💩'];
 
         const p = await post().add({
             text: suggestionData.text,
